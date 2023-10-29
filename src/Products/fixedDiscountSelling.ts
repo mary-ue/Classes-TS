@@ -2,10 +2,10 @@ import AbstractSelling from './abstractSelling';
 import Product from './product';
 
 class FixedDiscountSelling extends AbstractSelling {
-  private static readonly DISCOUNT = 10;
+  private static readonly DISCOUNT_PERCENT = 0.1;;
 
   getPrice(): number {
-    return (this._product.price - FixedDiscountSelling.DISCOUNT) * this._quantity;
+    return this._product.price * (1 - FixedDiscountSelling.DISCOUNT_PERCENT) * this._quantity;
   }
 
   compare(other: AbstractSelling): number {
