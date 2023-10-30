@@ -1,5 +1,5 @@
-import Job from "./Workers/Job";
-import Person from "./Workers/Person";
+import Job from "./Job";
+import Person from "./Person";
 
 const john = new Person('John');
 const alice = new Person('Alice');
