@@ -1,48 +1,20 @@
 "use strict";
-// class Job {
-//   private role: string;
-//   private salary: number;
-//   constructor(role: string, salary: number) {
-//     this.role = role;
-//     this.salary = salary;
-//   }
-//   getSalary(): number {
-//     return this.salary;
-//   }
-//   work(personName: string): void {
-//     console.log(`${personName} сейчас работает как ${this.role}`);
-//   }
-// }
-// class Person {
-//   private job!: Job;
-//   private name: string;
-//   constructor(name: string) {
-//     this.name = name;
-//   }
-//   setJob(job: Job): void {
-//     this.job = job;
-//   }
-//   getSalary(): number {
-//     return this.job ? this.job.getSalary() : 0;
-//   }
-//   work(): void {
-//     if (this.job) {
-//       this.job.work(this.name);
-//     } else {
-//       console.log(`${this.name} не имеет работы`);
-//     }
-//   }
-// }
-// const john = new Person('John');
-// const alice = new Person('Alice');
-// const developerJob = new Job('Developer', 50000);
-// const designerJob = new Job('Designer', 60000);
-// john.setJob(developerJob);
-// alice.setJob(designerJob);
-// john.work(); // Выведет: John сейчас работает как Developer
-// alice.work(); // Выведет: Alice сейчас работает как designer
-// // Переквалификация
-// john.setJob(designerJob);
-// john.work(); 
-// alice.setJob(developerJob);
-// alice.work(); 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Job_1 = __importDefault(require("./Workers/Job"));
+const Person_1 = __importDefault(require("./Workers/Person"));
+const john = new Person_1.default('John');
+const alice = new Person_1.default('Alice');
+const developerJob = new Job_1.default('Developer', 50000);
+const designerJob = new Job_1.default('Designer', 60000);
+john.job = developerJob;
+alice.job = designerJob;
+john.work(); // Выведет: John сейчас работает как Developer
+alice.work(); // Выведет: Alice сейчас работает как designer
+// Переквалификация
+john.job = designerJob;
+john.work();
+alice.job = developerJob;
+alice.work();

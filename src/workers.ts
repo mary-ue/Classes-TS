@@ -1,62 +1,22 @@
-// class Job {
-//   private role: string;
-//   private salary: number;
+import Job from "./Workers/Job";
+import Person from "./Workers/Person";
 
-//   constructor(role: string, salary: number) {
-//     this.role = role;
-//     this.salary = salary;
-//   }
+const john = new Person('John');
+const alice = new Person('Alice');
 
-//   getSalary(): number {
-//     return this.salary;
-//   }
+const developerJob = new Job('Developer', 50000);
+const designerJob = new Job('Designer', 60000);
 
-//   work(personName: string): void {
-//     console.log(`${personName} сейчас работает как ${this.role}`);
-//   }
-// }
+john.job = developerJob;
+alice.job = designerJob;
 
-// class Person {
-//   private job!: Job;
-//   private name: string;
+john.work(); // Выведет: John сейчас работает как Developer
+alice.work(); // Выведет: Alice сейчас работает как designer
 
-//   constructor(name: string) {
-//     this.name = name;
-//   }
+// Переквалификация
+john.job = designerJob;
+john.work(); 
 
-//   setJob(job: Job): void {
-//     this.job = job;
-//   }
-
-//   getSalary(): number {
-//     return this.job ? this.job.getSalary() : 0;
-//   }
-
-//   work(): void {
-//     if (this.job) {
-//       this.job.work(this.name);
-//     } else {
-//       console.log(`${this.name} не имеет работы`);
-//     }
-//   }
-// }
-
-// const john = new Person('John');
-// const alice = new Person('Alice');
-
-// const developerJob = new Job('Developer', 50000);
-// const designerJob = new Job('Designer', 60000);
-
-// john.setJob(developerJob);
-// alice.setJob(designerJob);
-
-// john.work(); // Выведет: John сейчас работает как Developer
-// alice.work(); // Выведет: Alice сейчас работает как designer
-
-// // Переквалификация
-// john.setJob(designerJob);
-// john.work(); 
-
-// alice.setJob(developerJob);
-// alice.work(); 
+alice.job = developerJob;
+alice.work();
 

@@ -1,4 +1,4 @@
-import Product from './product';
+import Product from './Product';
 
 abstract class AbstractSelling {
   protected _product: Product;
@@ -25,9 +25,17 @@ abstract class AbstractSelling {
     this._quantity = value;
   }
 
-  abstract getPrice(): number;
+  get price(): number {
+    return this._product.price * this._quantity;
+  }
 
-  abstract compare(other: AbstractSelling): number;
+  set price(newPrice: number) {
+    this._product.price = newPrice;
+  }
+
+  compare(other: AbstractSelling): number {
+    return this.price - other.price;
+  }
 }
 
 export default AbstractSelling;

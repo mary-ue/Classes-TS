@@ -1,16 +1,20 @@
-import AbstractSelling from './abstractSelling';
-import Product from './product';
+import AbstractSelling from './AbstractSelling';
+import Product from './Product';
 
 class FixedDiscountSelling extends AbstractSelling {
-  private static readonly DISCOUNT_PERCENT = 0.1;;
+  static readonly _DISCOUNT_PERCENT = 0.1;
 
-  getPrice(): number {
-    return this._product.price * (1 - FixedDiscountSelling.DISCOUNT_PERCENT) * this._quantity;
+  get price(): number {
+    return this._product.price * (1 - FixedDiscountSelling._DISCOUNT_PERCENT) * this._quantity;
   }
 
-  compare(other: AbstractSelling): number {
-    return this.getPrice() - other.getPrice();
+  set price(newPrice: number) {
+    this._product.price = newPrice;
   }
+
+  // compare(other: AbstractSelling): number {
+  //   return this.price - other.price;
+  // }
 }
 
 export default FixedDiscountSelling;

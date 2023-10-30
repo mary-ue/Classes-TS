@@ -1,21 +1,21 @@
-import AbstractSelling from './abstractSelling';
-import Product from './product';
+import AbstractSelling from './AbstractSelling';
+import Product from './Product';
 
 class PercentDiscountSelling extends AbstractSelling {
-  private static readonly DISCOUNT_PERCENT = 0.1;
-  private static readonly DISCOUNT_QUANTITY = 3;
+  static readonly _DISCOUNT_PERCENT = 0.1;
+  static readonly _DISCOUNT_QUANTITY = 3;
 
-  getPrice(): number {
-    if (this._quantity >= PercentDiscountSelling.DISCOUNT_QUANTITY) {
-      const discountedPrice = this._product.price * (1 - PercentDiscountSelling.DISCOUNT_PERCENT);
-      return discountedPrice * this._quantity;
+  get price(): number {
+    if (this._quantity >= PercentDiscountSelling._DISCOUNT_QUANTITY) {
+      return this._product._price * (1 - PercentDiscountSelling._DISCOUNT_PERCENT) * this._quantity;
     }
-    return this._product.price * this._quantity;
+    return this._product._price * this._quantity;
+    // return 1;
   }
 
-  compare(other: AbstractSelling): number {
-    return this.getPrice() - other.getPrice();
-  }
+  // compare(other: AbstractSelling): number {
+  //   return this.price - other.price;
+  // }
 }
 
 export default PercentDiscountSelling;

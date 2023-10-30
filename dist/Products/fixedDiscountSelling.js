@@ -3,15 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const abstractSelling_1 = __importDefault(require("./abstractSelling"));
-class FixedDiscountSelling extends abstractSelling_1.default {
-    static DISCOUNT_PERCENT = 0.1;
-    ;
-    getPrice() {
-        return this._product.price * (1 - FixedDiscountSelling.DISCOUNT_PERCENT) * this._quantity;
+const AbstractSelling_1 = __importDefault(require("./AbstractSelling"));
+class FixedDiscountSelling extends AbstractSelling_1.default {
+    static _DISCOUNT_PERCENT = 0.1;
+    get price() {
+        return this._product.price * (1 - FixedDiscountSelling._DISCOUNT_PERCENT) * this._quantity;
     }
-    compare(other) {
-        return this.getPrice() - other.getPrice();
+    set price(newPrice) {
+        this._product.price = newPrice;
     }
 }
 exports.default = FixedDiscountSelling;

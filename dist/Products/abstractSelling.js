@@ -19,5 +19,14 @@ class AbstractSelling {
     set quantity(value) {
         this._quantity = value;
     }
+    get price() {
+        return this._product.price * this._quantity;
+    }
+    set price(newPrice) {
+        this._product.price = newPrice;
+    }
+    compare(other) {
+        return this.price - other.price;
+    }
 }
 exports.default = AbstractSelling;
