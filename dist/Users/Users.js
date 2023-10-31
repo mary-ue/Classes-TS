@@ -12,5 +12,17 @@ class Users {
     get(id) {
         return this.usersList[id] || null;
     }
+    sorted(order = 'asc', sortBy = 'id') {
+        const sortedList = Object.values(this.usersList);
+        sortedList.sort((a, b) => {
+            if (order === 'asc') {
+                return a[sortBy] - b[sortBy];
+            }
+            else {
+                return b[sortBy] - a[sortBy];
+            }
+        });
+        return sortedList;
+    }
 }
 exports.default = Users;

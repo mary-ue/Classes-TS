@@ -21,3 +21,6 @@ console.log(students.remove(1)); // true
 console.log(students.remove(10)); // false
 console.log(students.get(2)); // { id: 2, firstname: 'Jane', surname: 'Smith', age: 21, year: 3, specialty: 'Physics' }
 console.log(students.get(6)); // null
+// Сортировка
+console.log(students.sorted()); // ↑ id
+console.log(employees.sorted('desc', 'age')); // ↓ age

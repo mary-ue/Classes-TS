@@ -22,6 +22,19 @@ abstract class Users<T extends User> {
     return this.usersList[id] || null;
   }
 
+  sorted<K extends keyof T>(order: 'asc' | 'desc' = 'asc', sortBy: K = 'id' as K): T[] {
+    const sortedList = Object.values(this.usersList);
+
+    sortedList.sort((a, b) => {
+      if (order === 'asc') {
+        return (a[sortBy] as any) - (b[sortBy] as any);
+      } else {
+        return (b[sortBy] as any) - (a[sortBy] as any);
+      }
+    });
+
+    return sortedList;
+  }
 }
 
 export default Users;
