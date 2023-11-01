@@ -5,10 +5,6 @@ interface Student extends User {
   specialty: string;
 }
 
-class Students extends Users<Student> {
-  add(student: Student): void {
-    this.usersList[student.id] = student;
-  }
-}
+class Students extends Users<Student> {}
 
 export default Students;

@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Users {
     usersList = {};
+    add(user) {
+        this.usersList[user.id] = user;
+    }
     remove(id) {
         if (this.usersList[id]) {
             delete this.usersList[id];

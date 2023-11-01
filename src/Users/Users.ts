@@ -8,7 +8,9 @@ export interface User {
 abstract class Users<T extends User> {
   protected usersList: {[id: number]: T} = {};
 
-  abstract add(user: T): void;
+  add(user: T): void {
+    this.usersList[user.id] = user;
+  }
 
   remove(id: number): boolean {
     if (this.usersList[id]) {
